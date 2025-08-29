@@ -1,9 +1,10 @@
-'use client'
+"use client";
 
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
 
 const NavigationBar = () => {
-    const [activeSubmenu, setActiveSubmenu] = useState(null);
+    const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
 
@@ -121,7 +122,7 @@ const NavigationBar = () => {
         { name: "Journal", href: "https://www.jamesedition.com/stories" },
     ];
 
-    const handleMouseEnter = (menuName: any) => {
+    const handleMouseEnter = (menuName: string) => {
         setActiveSubmenu(menuName);
     };
 
@@ -231,7 +232,7 @@ const NavigationBar = () => {
                                         ?.slice(0, 8)
                                         .map((country, index) => (
                                             <li key={index}>
-                                                <a
+                                                <Link
                                                     href={`/real_estate/${country
                                                         .toLowerCase()
                                                         .replace(/\s+/g, "-")}`}
@@ -242,7 +243,7 @@ const NavigationBar = () => {
                                                     }`}
                                                 >
                                                     {country}
-                                                </a>
+                                                </Link>
                                             </li>
                                         ))}
                                 </ul>
@@ -262,7 +263,7 @@ const NavigationBar = () => {
                                         ?.slice(0, 8)
                                         .map((city, index) => (
                                             <li key={index}>
-                                                <a
+                                                <Link
                                                     href={`/real_estate/${city
                                                         .toLowerCase()
                                                         .replace(/\s+/g, "-")}`}
@@ -273,7 +274,7 @@ const NavigationBar = () => {
                                                     }`}
                                                 >
                                                     {city}
-                                                </a>
+                                                </Link>
                                             </li>
                                         ))}
                                 </ul>
@@ -293,7 +294,7 @@ const NavigationBar = () => {
                                         ?.slice(0, 8)
                                         .map((region, index) => (
                                             <li key={index}>
-                                                <a
+                                                <Link
                                                     href={`/real_estate/${region
                                                         .toLowerCase()
                                                         .replace(/\s+/g, "-")}`}
@@ -304,13 +305,13 @@ const NavigationBar = () => {
                                                     }`}
                                                 >
                                                     {region}
-                                                </a>
+                                                </Link>
                                             </li>
                                         ))}
                                 </ul>
                             </div>
                             <div className="flex flex-col justify-end">
-                                <a
+                                <Link
                                     href="/real_estate/all"
                                     className={`inline-flex items-center px-6 py-3 rounded transition-all duration-[250ms] ${
                                         isScrolled
@@ -320,7 +321,7 @@ const NavigationBar = () => {
                                 >
                                     View all homes
                                     <ArrowIcon />
-                                </a>
+                                </Link>
                             </div>
                         </div>
                     </div>
@@ -358,7 +359,7 @@ const NavigationBar = () => {
                                         ?.slice(0, 8)
                                         .map((make, index) => (
                                             <li key={index}>
-                                                <a
+                                                <Link
                                                     href={`/cars/${make
                                                         .toLowerCase()
                                                         .replace(/\s+/g, "_")}`}
@@ -369,7 +370,7 @@ const NavigationBar = () => {
                                                     }`}
                                                 >
                                                     {make}
-                                                </a>
+                                                </Link>
                                             </li>
                                         ))}
                                 </ul>
@@ -389,7 +390,7 @@ const NavigationBar = () => {
                                         ?.slice(0, 8)
                                         .map((model, index) => (
                                             <li key={index}>
-                                                <a
+                                                <Link
                                                     href="#"
                                                     className={`text-sm transition-all duration-[250ms] ${
                                                         isScrolled
@@ -398,13 +399,13 @@ const NavigationBar = () => {
                                                     }`}
                                                 >
                                                     {model}
-                                                </a>
+                                                </Link>
                                             </li>
                                         ))}
                                 </ul>
                             </div>
                             <div className="flex flex-col justify-end">
-                                <a
+                                <Link
                                     href="/cars?order=premium"
                                     className={`inline-flex items-center px-6 py-3 rounded transition-all duration-[250ms] ${
                                         isScrolled
@@ -414,7 +415,7 @@ const NavigationBar = () => {
                                 >
                                     View all cars
                                     <ArrowIcon />
-                                </a>
+                                </Link>
                             </div>
                         </div>
                     </div>
@@ -460,7 +461,7 @@ const NavigationBar = () => {
                             </button>
 
                             {/* Logo */}
-                            <a
+                            <Link
                                 href="/"
                                 className="flex items-center"
                                 aria-label="JamesEdition"
@@ -474,11 +475,11 @@ const NavigationBar = () => {
                                 >
                                     <LogoIcon />
                                 </div>
-                            </a>
+                            </Link>
 
                             {/* User controls */}
                             <div className="flex items-center space-x-4">
-                                <a
+                                <Link
                                     href="/professional_seller"
                                     className={`hidden md:inline-block text-sm transition-all duration-[250ms] ${
                                         isScrolled
@@ -487,7 +488,7 @@ const NavigationBar = () => {
                                     }`}
                                 >
                                     Sell With Us
-                                </a>
+                                </Link>
                                 <button
                                     className={`flex items-center space-x-2 px-4 py-2 rounded-full border transition-all duration-[250ms] ${
                                         isScrolled
@@ -535,7 +536,7 @@ const NavigationBar = () => {
                                             {item.name}
                                         </button>
                                     ) : (
-                                        <a
+                                        <Link
                                             href={item.href}
                                             className={`text-sm font-medium transition-all duration-[250ms] px-3 py-2 rounded ${
                                                 isScrolled
@@ -544,7 +545,7 @@ const NavigationBar = () => {
                                             }`}
                                         >
                                             {item.name}
-                                        </a>
+                                        </Link>
                                     )}
                                 </div>
                             ))}
@@ -574,7 +575,7 @@ const NavigationBar = () => {
                         <ul className="space-y-4">
                             {menuItems.map((item) => (
                                 <li key={item.name}>
-                                    <a
+                                    <Link
                                         href={item.href}
                                         className="block text-gray-700 hover:text-gray-900 py-2 text-lg"
                                         onClick={() =>
@@ -582,17 +583,17 @@ const NavigationBar = () => {
                                         }
                                     >
                                         {item.name}
-                                    </a>
+                                    </Link>
                                 </li>
                             ))}
                             <li>
-                                <a
+                                <Link
                                     href="/professional_seller"
                                     className="block text-gray-700 hover:text-gray-900 py-2 text-lg"
                                     onClick={() => setIsMobileMenuOpen(false)}
                                 >
                                     Sell With Us
-                                </a>
+                                </Link>
                             </li>
                         </ul>
                     </nav>
